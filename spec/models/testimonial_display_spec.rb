@@ -29,16 +29,11 @@ RSpec.describe TestimonialDisplay do
 
     it "will show 0 or 1 testimonial if no other conditions are met" do
       waning_monday = Date.new(2019, 9, 16)
-      results = []
       display = TestimonialDisplay.new
 
       travel_to waning_monday do
-        2.times do
-          results << display.number_testimonials
-        end
+        expect(display.number_testimonials).to be_in [0, 1]
       end
-
-      expect(results.uniq).to match_array [0, 1]
     end
   end
 end
