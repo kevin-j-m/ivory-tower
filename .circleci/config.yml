@@ -13,6 +13,11 @@ jobs:
       - restore_cache:
           key: ivory_tower-{{ checksum "Gemfile.lock" }}
 
+      # update bundler
+      - run:
+          name: Update bundler
+          command: gem install bundler
+
       # cmake is required by Rugged, a dependency of Pronto
       - run:
           name: Install cmake
