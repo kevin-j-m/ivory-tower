@@ -1,19 +1,9 @@
 class AccessKeyGenerator
   def access_key(accessor_type:, acquired_company: nil, user_id: nil)
     if accessor_type == :company
-      if acquired_company
-        SecureRandom.base64
-      else
-        "CO-#{SecureRandom.hex(8)}"
-      end
+      Company.new(acquisition: acquired_company).generate_access_key
     elsif accessor_type == :user
-      uuid = SecureRandom.uuid
-
-      if user_id.odd?
-        uuid << "-#{user_id}"
-      else
-        uuid
-      end
+      User.new(id: user_id).generate_access_key
     else
       raise UnknownAccessorType
     end
