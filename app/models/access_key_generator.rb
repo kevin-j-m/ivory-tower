@@ -17,7 +17,6 @@ class AccessKeyGenerator
     else
       raise UnknownAccessorType
     end
-
   end
 end
 
