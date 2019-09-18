@@ -29,18 +29,26 @@ RSpec.describe AccessKeyGenerator do
       expect(key.match?(UUID_REGEX)).not_to eq true
     end
 
-    it "provides a UUID if the key is for a user" do
+    it "provides a UUID if the key is for a user with an even id" do
       generator = AccessKeyGenerator.new
 
-      key = generator.access_key(accessor_type: :user)
+      key = generator.access_key(accessor_type: :user, user_id: 2)
 
       expect(key.match?(UUID_REGEX)).to eq true
+    end
+
+    it "appends the user id if the user's id is odd" do
+      generator = AccessKeyGenerator.new
+
+      key = generator.access_key(accessor_type: :user, user_id: 1)
+
+      expect(key).to end_with("-1")
     end
 
     it "does not provide a company key style if the key is for a user" do
       generator = AccessKeyGenerator.new
 
-      key = generator.access_key(accessor_type: :user)
+      key = generator.access_key(accessor_type: :user, user_id: 0)
 
       expect(key.match?(COMPANY_REGEX)).not_to eq true
     end

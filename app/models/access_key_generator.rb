@@ -1,5 +1,5 @@
 class AccessKeyGenerator
-  def access_key(accessor_type:, acquired_company: nil)
+  def access_key(accessor_type:, acquired_company: nil, user_id: nil)
     if accessor_type == :company
       if acquired_company
         SecureRandom.base64
@@ -7,7 +7,13 @@ class AccessKeyGenerator
         "CO-#{SecureRandom.hex(8)}"
       end
     elsif accessor_type == :user
-      SecureRandom.uuid
+      uuid = SecureRandom.uuid
+
+      if user_id.odd?
+        uuid << "-#{user_id}"
+      else
+        uuid
+      end
     else
       raise UnknownAccessorType
     end
