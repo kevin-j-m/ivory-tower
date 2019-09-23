@@ -3,12 +3,12 @@ extern crate helix;
 
 ruby! {
     class Fizzbuzz {
-        def hello() {
-            println!("Hello from fizzbuzz!");
-        }
-
-        def generate(bound: i32) -> String {
-            "hi1".to_string()
+        def generate(bound: i32) -> Vec<String> {
+            let mut results = Vec::new();
+            for x in 1..(bound+1) {
+                results.push(x.to_string());
+            }
+            results
         }
     }
 }
