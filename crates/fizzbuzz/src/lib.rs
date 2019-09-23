@@ -10,6 +10,7 @@ ruby! {
                     (0, 0) => "FizzBuzz".to_string(),
                     (0, _) => "Fizz".to_string(),
                     (_, 0) => "Buzz".to_string(),
+                    (2, 4) => "Buzz".to_string(),
                     (_, _) => x.to_string(),
                 })
             }
