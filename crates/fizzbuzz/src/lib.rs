@@ -6,5 +6,9 @@ ruby! {
         def hello() {
             println!("Hello from fizzbuzz!");
         }
+
+        def generate(bound: i32) -> String {
+            "hi1".to_string()
+        }
     }
 }

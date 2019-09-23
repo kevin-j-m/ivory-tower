@@ -16,12 +16,17 @@ jobs:
       # update bundler
       - run:
           name: Update bundler
-          command: gem install bundler
+          command: gem uninstall bundler && gem install bundler
 
       # cmake is required by Rugged, a dependency of Pronto
       - run:
           name: Install cmake
           command: sudo apt-get -y -qq update && sudo apt-get -y -qq install cmake
+
+      # install rust
+      - run:
+          name: Install rust
+          command: curl https://sh.rustup.rs -sSf | sh -s -- -y
 
       # Bundle install dependencies
       - run:
@@ -46,6 +51,10 @@ jobs:
       - run:
           name: RSpec
           command: bundle exec rspec
+
+      - run:
+          name: Rust
+          command: echo "we should add the rust specs to CI"
 
       # Security analysis
       - run:
