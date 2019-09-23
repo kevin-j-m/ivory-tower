@@ -7,6 +7,7 @@ ruby! {
             let mut results = Vec::new();
             for x in 1..(bound+1) {
                 if x % 3 == 0 { results.push("Fizz".to_string()) }
+                else if x % 5 == 0 { results.push("Buzz".to_string()) }
                 else { results.push(x.to_string()) }
             }
             results
