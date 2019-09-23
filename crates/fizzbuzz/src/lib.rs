@@ -6,18 +6,12 @@ ruby! {
         def generate(bound: i32) -> Vec<String> {
             let mut results = Vec::new();
             for x in 1..(bound+1) {
-                if x % 15 == 0 {
-                    results.push("FizzBuzz".to_string())
-                }
-                else if x % 3 == 0 {
-                    results.push("Fizz".to_string())
-                }
-                else if x % 5 == 0 {
-                    results.push("Buzz".to_string())
-                }
-                else {
-                    results.push(x.to_string())
-                }
+                results.push(match(x % 3, x % 5) {
+                    (0, 0) => "FizzBuzz".to_string(),
+                    (0, _) => "Fizz".to_string(),
+                    (_, 0) => "Buzz".to_string(),
+                    (_, _) => x.to_string(),
+                })
             }
             results
         }
