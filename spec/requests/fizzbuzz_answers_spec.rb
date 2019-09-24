@@ -9,8 +9,11 @@ RSpec.describe "Fizzbuzz Answers", type: :request do
       expect(json_response).to eq ["1", "2", "Fizz"]
     end
 
-    # TODO: accept multiple params
-    # have fail because controller memoizes result of expensive calculation
+    it "handles multiple values if many are passed in" do
+      get fizzbuzz_answers_path(value: [3, 4])
+
+      expect(json_response.keys).to match_array(["3", "4"])
+    end
   end
 
   def json_response
