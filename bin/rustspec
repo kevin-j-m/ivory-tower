@@ -2,4 +2,5 @@
 
 cd crates/fizzbuzz
 bundle install
-rake spec
+source $HOME/.cargo/env
+bundle exec rake spec
