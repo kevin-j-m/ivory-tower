@@ -29,12 +29,12 @@ jobs:
       # configure rust shell
       - run:
           name: Configure rust
-          command: source $HOME/.cargo/env
+          command: cat $HOME/.cargo/env >> $BASH_ENV
 
       # verify rust
       - run:
           name: Verify rust
-          command: source $HOME/.cargo/env && rustc --version
+          command: rustc --version
 
       # cmake is required by Rugged, a dependency of Pronto
       - run:
@@ -55,7 +55,7 @@ jobs:
       # build rust
       - run:
           name: Build rust
-          command: source $HOME/.cargo/env && bundle exec rake build
+          command: bundle exec rake build
 
       # Database setup
       - run:
