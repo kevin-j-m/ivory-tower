@@ -38,4 +38,4 @@ available on [SpeakerDeck](https://speakerdeck.com/kevinmurphy/dont-hang-me-out-
 ## Seen At
 
 * [BostonRB](https://www.meetup.com/bostonrb/events/265361498/) - November 12, 2019
-* [RubyConf](http://rubyconf.org/program#session-892) - November 20, 2019
+* [RubyConf](https://www.youtube.com/watch?v=b960MApGA7A) - November 20, 2019
