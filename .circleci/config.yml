@@ -39,7 +39,7 @@ jobs:
       # cmake is required by Rugged, a dependency of Pronto
       - run:
           name: Install cmake
-          command: sudo apt-get -y -qq update && sudo apt-get -y -qq install cmake
+          command: sudo rm -rf /var/lib/apt/lists/* && sudo apt-get -y -qq update && sudo apt-get -y -qq install cmake
 
       # Bundle install dependencies
       - run:
